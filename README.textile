@@ -2,34 +2,9 @@ h2. badg.ly .NET library
 
 This is a .NET library for "badg.ly":http://badg.ly.
 
-h3. Logging Events
+h3. Using The Library
 
-Create a new @Logger@ with your input key:
-<pre>var logger = new Logger("my-long-key-that-i-got-when-setting-up-my-http-input");</pre>
+Create a new @IBadgly@ instance using the key and secret from the website:
+<pre>var badgly = new Badgly("4d4e68e41d951704a4000004", ",S:D)QgD%Aa=E.e;X1iT/S");</pre>
 
-Use either a synchronous or asynchronous @Log@ method.
-
-h3. Searching Events
-
-First, setup the username/password you want to connect with:
-<pre>LogglyConfiguration.Configure(c => c.AuthenticateWith("username", "password"));</pre>
-
-Next, create a searcher with your domain:
-<pre>var searcher = new Searcher("mydomain");</pre>
-
-Finally, use the various @Search@ methods.
-
-Note that searching happens synchronously.
-
-
-h4. Facents
-
-First, setup the username/password you want to connect with:
-<pre>LogglyConfiguration.Configure(c => c.AuthenticateWith("username", "password"));</pre>
-
-Next, create a facet with your domain:
-<pre>var facet = new Facet("mydomain");</pre>
-
-Finally, use the various @GetDate@, @GetIp@ and @GetInput* methods.
-
-Getting facts is always synchronous
+All methods are asychronous. Check each response's Success flag to know whether the request worked or not. On success, the Data property contains the response.
